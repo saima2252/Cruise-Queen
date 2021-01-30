@@ -31,7 +31,9 @@
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book./p>
         </div>
 
 
@@ -58,21 +60,23 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="first-class-count" class="inp-style inp-width" value = "1" name="">
+                    <input id="first-class-count" class="inp-style inp-width" value="1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                   <p><button id="first-class-decrease" class="buttonClick">-</button><button id="first-class-increase" class="buttonClick">+</button></p>
-                   
+                    <p><button id="first-class-decrease" class="buttonClick">-</button><button id="first-class-increase"
+                            class="buttonClick">+</button></p>
+
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-count" class="inp-style inp-width" value = "1" name="">
+                    <input id="economy-count" class="inp-style inp-width" value="1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><button id="economy-decrease" class="buttonClick">-</button><button id="economy-increase" class="buttonClick">+</button></p>
+                    <p><button id="economy-decrease" class="buttonClick">-</button><button id="economy-increase"
+                            class="buttonClick">+</button></p>
                 </div>
             </div>
             <div class="calculations">
@@ -81,7 +85,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$<span>250</span></p>
+                        <p>$ <span id="sub-total">250</span></p>
                     </div>
                 </div>
 
@@ -107,52 +111,72 @@
         </div>
     </main>
     <script>
-        document.getElementById('first-class-increase').addEventListener('click', function(){
+
+       
+
+
+        document.getElementById('first-class-increase').addEventListener('click', function () {
             const firstClassInput = document.getElementById('first-class-count');
             const firstClassCount = parseInt(firstClassInput.value);
-           document.getElementById('first-class-count').value = firstClassCount + 1;
+            document.getElementById('first-class-count').value = firstClassCount + 1;
+
+            const subTotal = document.getElementById('sub-total').innerText;
+            const subTotalNumber = parseInt(subTotal);
+            document.getElementById('sub-total').innerText = subTotalNumber + 150;
 
 
         })
 
 
-        document.getElementById('first-class-decrease').addEventListener('click', function(){
+        document.getElementById('first-class-decrease').addEventListener('click', function () {
             const firstClassInput = document.getElementById('first-class-count');
             const firstClassCount = parseInt(firstClassInput.value);
-            if(firstClassCount > 0){
+            if (firstClassCount > 0) {
                 document.getElementById('first-class-count').value = firstClassCount - 1;
+                const subTotal = document.getElementById('sub-total').innerText;
+                const subTotalNumber = parseInt(subTotal);
+                document.getElementById('sub-total').innerText = subTotalNumber - 150;
+
             }
-           
-           
-
 
         })
 
 
 
 
-        document.getElementById('economy-increase').addEventListener('click', function(){
+        document.getElementById('economy-increase').addEventListener('click', function () {
             const economyInput = document.getElementById('economy-count');
             const economyCount = parseInt(economyInput.value);
-           document.getElementById('economy-count').value = economyCount + 1;
+            document.getElementById('economy-count').value = economyCount + 1;
+
+
+            const subTotal = document.getElementById('sub-total').innerText;
+            const subTotalNumber = parseInt(subTotal);
+            document.getElementById('sub-total').innerText = subTotalNumber + 100;
+
 
 
         })
 
 
-        document.getElementById('economy-decrease').addEventListener('click', function(){
+        document.getElementById('economy-decrease').addEventListener('click', function () {
             const economyInput = document.getElementById('economy-count');
             const economyCount = parseInt(economyInput.value);
-            if(economyCount > 0){
+            if (economyCount > 0) {
                 document.getElementById('economy-count').value = economyCount - 1;
+
+                const subTotal = document.getElementById('sub-total').innerText;
+                const subTotalNumber = parseInt(subTotal);
+                document.getElementById('sub-total').innerText = subTotalNumber - 100;
+
             }
-           
-           
+
+
 
 
         })
 
-        
+
 
 
 
