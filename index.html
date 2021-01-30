@@ -47,7 +47,7 @@
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
+                    <label for="">Departure</label>
                     <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
@@ -58,20 +58,21 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="first-class-count" class="inp-style inp-width" value = "1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                   <p><button id="first-class-decrease" class="buttonClick">-</button><button id="first-class-increase" class="buttonClick">+</button></p>
+                   
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="economy-count" class="inp-style inp-width" value = "1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <p><button id="economy-decrease" class="buttonClick">-</button><button id="economy-increase" class="buttonClick">+</button></p>
                 </div>
             </div>
             <div class="calculations">
@@ -80,7 +81,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$<span>250</span></p>
                     </div>
                 </div>
 
@@ -89,7 +90,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$<span>25</span></p>
                     </div>
                 </div>
                 <hr>
@@ -98,13 +99,67 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$<span>275</span></p>
                     </div>
                 </div>
             </div>
             <button class="btn-style">Book Now</button>
         </div>
     </main>
+    <script>
+        document.getElementById('first-class-increase').addEventListener('click', function(){
+            const firstClassInput = document.getElementById('first-class-count');
+            const firstClassCount = parseInt(firstClassInput.value);
+           document.getElementById('first-class-count').value = firstClassCount + 1;
+
+
+        })
+
+
+        document.getElementById('first-class-decrease').addEventListener('click', function(){
+            const firstClassInput = document.getElementById('first-class-count');
+            const firstClassCount = parseInt(firstClassInput.value);
+            if(firstClassCount > 0){
+                document.getElementById('first-class-count').value = firstClassCount - 1;
+            }
+           
+           
+
+
+        })
+
+
+
+
+        document.getElementById('economy-increase').addEventListener('click', function(){
+            const economyInput = document.getElementById('economy-count');
+            const economyCount = parseInt(economyInput.value);
+           document.getElementById('economy-count').value = economyCount + 1;
+
+
+        })
+
+
+        document.getElementById('economy-decrease').addEventListener('click', function(){
+            const economyInput = document.getElementById('economy-count');
+            const economyCount = parseInt(economyInput.value);
+            if(economyCount > 0){
+                document.getElementById('economy-count').value = economyCount - 1;
+            }
+           
+           
+
+
+        })
+
+        
+
+
+
+
+
+
+    </script>
 
     <!--Thank You-->
 </body>
